@@ -186,7 +186,8 @@ GLfloat gCubeVertexData[216] =
 //
 // In this method we should specify the modelMatrix (which is the rotation and distance from eye as specified in x,y,z co-ordinates)
 // and
-// projectionMatrix ( ) 
+// projectionMatrix ( )
+// The update method is used to specify the state [ animation, physics, simulations and game logic ]
 - (void)update
 {
     GLKMatrix4 projectionMatrix, modelMatrix, modelMatrixFinal;
@@ -195,7 +196,6 @@ GLfloat gCubeVertexData[216] =
     
     // The 1st variable --> Specifies the direction of the rotation -- anything from 0 to 180 degrees rotates it in our direction
     // anything more than 180 degrees to 360 degrees rotates it in the reverse direction
-    
     // The 2nd variable --> specifies the ratop of the screen aspect ratio
     // The 3rd variable --> specifies the near clipping distance.
     projectionMatrix = GLKMatrix4MakePerspective (GLKMathDegreesToRadians(50.0f), aspect, 0.1f, 100.0f);
@@ -229,6 +229,7 @@ GLfloat gCubeVertexData[216] =
 // Implement GLKView delegate method
 // This is exactly the same as the drawRect method in any other regular UIViewController class
 // It gets called every time a frame needs to be rendered
+// The drawInRect method is used to draw the scene itself
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     // specify (r,g,b, alpha) color for the various surface layers
